@@ -16,7 +16,7 @@ Distribution: Freshmeat RPMs
 Packager: Ryan Weaver <ryanw@infohwy.com>
 Source: http://members.xoom.com/sashav/aterm/%{name}-%{version}.tar.gz
 Source1: aterm.wmconfig
-Buildroot: /tmp/%{name}-%{version}-root
+BuildRoot:	/tmp/%{name}-%{version}-root
 
 %description
 aterm, version %{version}, is a colour vt102 terminal emulator based on
