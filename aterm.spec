@@ -32,12 +32,21 @@ tied to any libraries, and can be used anywhere.
 %prep
 %setup -q
 
-CFLAGS="$RPM_OPT_FLAGS" ./configure --prefix=/usr/X11R6 \
-	--enable-utmp --enable-wtmp --enable-background-image \
-	--with-png --with-jpeg \
-	--enable-transparency --enable-menubar --enable-graphics \
-	--enable-next-scroll --disable-backspace-key \
-	--disable-delete-key --enable-xgetdefault
+CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
+./configure %{_target} \
+	--prefix=/usr/X11R6 \
+	--enable-utmp \
+	--enable-wtmp \
+	--enable-background-image \
+	--with-png \
+	--with-jpeg \
+	--enable-transparency \
+	--enable-menubar \
+	--enable-graphics \
+	--enable-next-scroll \
+	--disable-backspace-key \
+	--disable-delete-key \
+	--enable-xgetdefault
 
 %build
 make
