@@ -51,11 +51,11 @@ make
 
 %install
 rm -rf $RPM_BUILD_ROOT
-mkdir -p $RPM_BUILD_ROOT%{_prefix}
-mkdir -p $RPM_BUILD_ROOT/etc/X11/applnk/Utilities
+instal -d $RPM_BUILD_ROOT%{_prefix} \
+	$RPM_BUILD_ROOT/usr/X11R6/share/applnk/Utilities
 
 make prefix=$RPM_BUILD_ROOT%{_prefix} install
-install %{SOURCE1} $RPM_BUILD_ROOT/etc/X11/applnk/Utilities
+install %{SOURCE1} $RPM_BUILD_ROOT/usr/X11R6/share/applnk/Utilities
 
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/aterm.1 ChangeLog
 
@@ -67,4 +67,4 @@ rm -rf $RPM_BUILD_ROOT
 %doc doc ChangeLog.gz
 %attr(755,root,root) %{_bindir}/aterm
 %{_mandir}/man1/aterm.1.gz
-/etc/X11/applnk/Utilities/aterm.desktop
+/usr/X11R6/share/applnk/Utilities/aterm.desktop
