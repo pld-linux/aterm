@@ -11,7 +11,7 @@ Source0:	http://download.sourceforge.net/aterm/%{name}-%{version}.tar.bz2
 Source1:	%{name}.desktop
 Patch0:		%{name}-utempter.patch
 Patch1:		%{name}-wtmp.patch
-Patch2:		%{name}-home_etc.patch
+Patch2:		%{name}-etc_dir.patch
 URL:		http://aterm.sourceforge.net/
 BuildRequires:	XFree86-devel
 BuildRequires:	autoconf
