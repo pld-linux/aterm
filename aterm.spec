@@ -82,11 +82,11 @@ CFLAGS="%{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_applnkdir}/Terminals
 
-%{__make} DESTDIR=$RPM_BUILD_ROOT install
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
-install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Terminals
+install -D %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Terminals
 
 tar -cf docs.tar doc/etc doc/menu
 
