@@ -4,8 +4,9 @@ Name:		aterm
 Version:	0.3.6
 Release:	7
 License:	GPL
-Group:		X11/Utilities
-Group(pl):	X11/Narzêdzia
+Group:		X11/Applications
+Group(de):	X11/Applikationen
+Group(pl):	X11/Aplikacje
 Vendor:		Sasha Vasko <sashav@sprintmail.com>
 URL:		http://members.xoom.com/sashav/aterm
 Source0:	http://members.xoom.com/sashav/aterm/%{name}-%{version}.tar.gz
@@ -45,7 +46,7 @@ u¿ywany gdziekolwiek.
 %patch1 -p1
 
 %build
-LDFLAGS="-s -lutempter"; export LDFLAGS;
+LDFLAGS="%{rpmldflags} -lutempter"; export LDFLAGS
 %configure \
 	--enable-utmp \
 	--enable-wtmp \
@@ -60,7 +61,7 @@ LDFLAGS="-s -lutempter"; export LDFLAGS;
 	--enable-next-scroll \
 	--enable-xgetdefault
 
-CFLAGS="$RPM_OPT_FLAGS" make
+CFLAGS="%{rpmcflags}" %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -70,7 +71,7 @@ install -d $RPM_BUILD_ROOT%{_applnkdir}/System
 %{__make} DESTDIR=$RPM_BUILD_ROOT install
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/System
 
-gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/aterm.1 ChangeLog
+gzip -9nf ChangeLog
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -79,5 +80,5 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc doc ChangeLog.gz
 %attr(755,root,root) %{_bindir}/aterm
-%{_mandir}/man1/aterm.1.gz
+%{_mandir}/man1/aterm.1*
 %{_applnkdir}/System/aterm.desktop
