@@ -19,23 +19,25 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		_mandir		%{_prefix}/man
 
 %description
-aterm is a colour vt102 terminal emulator based on rxvt 2.4.8 with Alfredo
-Kojima's additions of fast transparency, intended as an xterm(1)
-replacement for users who do not require features such as Tektronix 4014
-emulation and toolkit-style configurability. As a result, aterm uses much
-less swap space -- a significant advantage on a machine serving many X
-sessions.  It was created with AfterStep Window Manger users in mind, but
-is not tied to any libraries, and can be used anywhere.
+aterm is a colour vt102 terminal emulator based on rxvt 2.4.8 with
+Alfredo Kojima's additions of fast transparency, intended as an
+xterm(1) replacement for users who do not require features such as
+Tektronix 4014 emulation and toolkit-style configurability. As a
+result, aterm uses much less swap space -- a significant advantage on
+a machine serving many X sessions. It was created with AfterStep
+Window Manger users in mind, but is not tied to any libraries, and can
+be used anywhere.
 
 %description -l pl
-aterm jest kolorowym emulatorem terminala vt102, opartym na rxvt 2.4.8 z
-dodatkami Afredo Kojima do szybkiej emulacji przezroczysto¶ci. W za³o¿eniu
-ma zast±piæ program xterm(1) u¿ytkownikom nie wymagaj±cym takich rzeczy jak
-emulacja terminala Tektronix 4014 oraz "toolkit-style configurability".
-W efekcie aterm u¿ywa du¿o mniej pamiêci swap -- co jest du¿± zalet± w
-systemach obs³uguj±cych liczne sesje Xów. Zosta³ stworzony z my¶l± o
-u¿ytkownikach AfterStepa, ale nie jest zwi±zany z ¿adnymi specyficznymi
-bibliotekami i mo¿e byæ u¿ywany gdziekolwiek.
+aterm jest kolorowym emulatorem terminala vt102, opartym na rxvt 2.4.8
+z dodatkami Afredo Kojima do szybkiej emulacji przezroczysto¶ci. W
+za³o¿eniu ma zast±piæ program xterm(1) u¿ytkownikom nie wymagaj±cym
+takich rzeczy jak emulacja terminala Tektronix 4014 oraz
+"toolkit-style configurability". W efekcie aterm u¿ywa du¿o mniej
+pamiêci swap -- co jest du¿± zalet± w systemach obs³uguj±cych liczne
+sesje Xów. Zosta³ stworzony z my¶l± o u¿ytkownikach AfterStepa, ale
+nie jest zwi±zany z ¿adnymi specyficznymi bibliotekami i mo¿e byæ
+u¿ywany gdziekolwiek.
 
 %prep
 %setup -q
