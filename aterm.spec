@@ -2,16 +2,16 @@ Summary:	aterm - terminal emulator in an X Window System
 Summary(pl):	aterm - emulator terminala dla X Window System
 Name:		aterm
 Version:	0.3.6
-Release:	6
+Release:	7
 License:	GPL
 Group:		X11/Utilities
 Group(pl):	X11/Narzêdzia
 Vendor:		Sasha Vasko <sashav@sprintmail.com>
 URL:		http://members.xoom.com/sashav/aterm
 Source0:	http://members.xoom.com/sashav/aterm/%{name}-%{version}.tar.gz
-Source1:	aterm.desktop
-Patch0:		aterm-utempter.patch
-Patch1:		aterm-wtmp.patch
+Source1:	%{name}.desktop
+Patch0:		%{name}-utempter.patch
+Patch1:		%{name}-wtmp.patch
 BuildRequires:	utempter-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
