@@ -6,9 +6,14 @@ Copyright:	GPL
 Group:		X11/Utilities
 Vendor:		Sasha Vasko <sashav@sprintmail.com>
 URL:		http://members.xoom.com/sashav/aterm
-Source:		http://members.xoom.com/sashav/aterm/%{name}-%{version}.tar.gz
-Source1:	aterm.wmconfig
+Source0:	http://members.xoom.com/sashav/aterm/%{name}-%{version}.tar.gz
+Source1:	aterm.desktop
+Patch0:		aterm-utempter.patch
+Patch1:		aterm-wtmp.patch
 BuildRoot:	/tmp/%{name}-%{version}-root
+
+%define		_prefix	/usr/X11R6
+%define		_mandir /usr/X11R6/man
 
 %description
 aterm is a colour vt102 terminal emulator based on
@@ -23,11 +28,13 @@ tied to any libraries, and can be used anywhere.
 
 %prep
 %setup -q
+%patch0 -p1
+%patch1 -p1
 
 %build
-CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
+CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s -lutempter" \
 ./configure %{_target_platform} \
-	--prefix=/usr/X11R6 \
+	--prefix=%{_prefix} \
 	--enable-utmp \
 	--enable-wtmp \
 	--enable-background-image \
@@ -43,15 +50,14 @@ CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
 make
 
 %install
-if [ -d $RPM_BUILD_ROOT ]; then rm -rf $RPM_BUILD_ROOT; fi
-mkdir -p $RPM_BUILD_ROOT/usr/X11R6
-mkdir -p $RPM_BUILD_ROOT/etc/X11/wmconfig
+rm -rf $RPM_BUILD_ROOT
+mkdir -p $RPM_BUILD_ROOT%{_prefix}
+mkdir -p $RPM_BUILD_ROOT/etc/X11/applnk/Utilities
 
-make prefix=$RPM_BUILD_ROOT/usr/X11R6 install
-install -m 644 %{SOURCE1} $RPM_BUILD_ROOT/etc/X11/wmconfig/aterm
+make prefix=$RPM_BUILD_ROOT%{_prefix} install
+install %{SOURCE1} $RPM_BUILD_ROOT/etc/X11/applnk/Utilities
 
-gzip -9nf $RPM_BUILD_ROOT/usr/X11R6/man/man1/aterm.1
-	ChangeLog
+gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/aterm.1 ChangeLog
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -59,6 +65,6 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc doc ChangeLog.gz
-%attr(755,root,root) /usr/X11R6/bin/aterm
-/usr/X11R6/man/man1/aterm.1.gz
-%config(missingok) /etc/X11/wmconfig/aterm
+%attr(755,root,root) %{_bindir}/aterm
+%{_mandir}/man1/aterm.1.gz
+/etc/X11/applnk/Utilities/aterm.desktop
