@@ -21,7 +21,6 @@ BuildRequires:	libpng-devel
 BuildRequires:	utempter-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-
 %description
 aterm is a colour vt102 terminal emulator based on rxvt 2.4.8 with
 Alfredo Kojima's additions of fast transparency, intended as an
@@ -86,7 +85,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-install -D %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Terminals
+install -D %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Terminals/%{name}.desktop
 
 tar -cf docs.tar doc/etc doc/menu
 
