@@ -3,7 +3,7 @@ Summary(pl):	aterm - emulator terminala dla X Window System
 Summary(pt_BR):	Um emulador de vt102 colorido
 Name:		aterm
 Version:	0.4.2
-Release:	8
+Release:	9
 License:	GPL
 Vendor:		Sasha Vasko <sashav@sprintmail.com>
 Group:		X11/Applications
@@ -14,6 +14,7 @@ Patch0:		%{name}-utempter.patch
 Patch1:		%{name}-wtmp.patch
 Patch2:		%{name}-etc_dir.patch
 Patch3:		%{name}-copy.patch
+Patch4:		%{name}-home_end.patch
 URL:		http://aterm.sourceforge.net/
 BuildRequires:	XFree86-devel
 BuildRequires:	autoconf
@@ -55,6 +56,7 @@ leve.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
+%patch4 -p1
 
 %build
 cd autoconf
