@@ -13,6 +13,7 @@ Source0:	http://download.sourceforge.net/aterm/%{name}-%{version}.tar.bz2
 Source1:	%{name}.desktop
 Patch0:		%{name}-utempter.patch
 Patch1:		%{name}-wtmp.patch
+BuildRequires:	autoconf
 BuildRequires:	utempter-devel
 BuildRequires:	XFree86-devel
 BuildRequires:	libpng-devel
@@ -83,7 +84,6 @@ install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/System
 
 tar -cf docs.tar doc/etc doc/menu doc/yodl
 gzip -9nf ChangeLog doc/*html doc/README* doc/FAQ doc/TODO docs.tar
-
 
 %clean
 rm -rf $RPM_BUILD_ROOT
