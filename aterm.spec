@@ -2,7 +2,7 @@ Summary:	aterm - terminal emulator in an X Window System
 Summary(pl):	aterm - emulator terminala dla X Window System
 Name:		aterm
 Version:	0.3.6
-Release:	2
+Release:	4
 License:	GPL
 Group:		X11/Utilities
 Group(pl):	X11/Narzêdzia
@@ -14,8 +14,9 @@ Patch0:		aterm-utempter.patch
 Patch1:		aterm-wtmp.patch
 BuildRoot:	/tmp/%{name}-%{version}-root
 
-%define		_prefix	/usr/X11R6
-%define		_mandir /usr/X11R6/man
+%define		_prefix		/usr/X11R6
+%define		_mandir		%{_prefix}/man
+%define		_applnkdir	%{_datadir}/applnk
 
 %description
 aterm is a colour vt102 terminal emulator based on rxvt 2.4.8 with Alfredo
@@ -61,10 +62,10 @@ CFLAGS="$RPM_OPT_FLAGS" make
 %install
 rm -rf $RPM_BUILD_ROOT
 
-install -d $RPM_BUILD_ROOT%{_prefix}/share/applnk/Utilities
+install -d $RPM_BUILD_ROOT%{_applnkdir}/Utilities
 
 make DESTDIR=$RPM_BUILD_ROOT install
-install %{SOURCE1} $RPM_BUILD_ROOT%{_prefix}/share/applnk/Utilities
+install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Utilities
 
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/aterm.1 ChangeLog
 
@@ -76,4 +77,4 @@ rm -rf $RPM_BUILD_ROOT
 %doc doc ChangeLog.gz
 %attr(755,root,root) %{_bindir}/aterm
 %{_mandir}/man1/aterm.1.gz
-%{_prefix}/share/applnk/Utilities/aterm.desktop
+%{_applnkdir}/Utilities/aterm.desktop
