@@ -51,7 +51,7 @@ make
 
 %install
 rm -rf $RPM_BUILD_ROOT
-instal -d $RPM_BUILD_ROOT%{_prefix} \
+install -d $RPM_BUILD_ROOT%{_prefix} \
 	$RPM_BUILD_ROOT/usr/X11R6/share/applnk/Utilities
 
 make prefix=$RPM_BUILD_ROOT%{_prefix} install
