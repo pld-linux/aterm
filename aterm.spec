@@ -19,8 +19,6 @@ BuildRequires:	libpng-devel
 BuildRequires:	utempter-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_prefix		/usr/X11R6
-%define		_mandir		%{_prefix}/man
 
 %description
 aterm is a colour vt102 terminal emulator based on rxvt 2.4.8 with
