@@ -2,7 +2,7 @@ Summary:	aterm - terminal emulator in an X Window System
 Summary(pl):	aterm - emulator terminala dla X Window System
 Name:		aterm
 Version:	0.3.6
-Release:	5
+Release:	6
 License:	GPL
 Group:		X11/Utilities
 Group(pl):	X11/Narzêdzia
@@ -65,10 +65,10 @@ CFLAGS="$RPM_OPT_FLAGS" make
 %install
 rm -rf $RPM_BUILD_ROOT
 
-install -d $RPM_BUILD_ROOT%{_applnkdir}/Utilities
+install -d $RPM_BUILD_ROOT%{_applnkdir}/System
 
 make DESTDIR=$RPM_BUILD_ROOT install
-install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Utilities
+install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/System
 
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/aterm.1 ChangeLog
 
@@ -80,4 +80,4 @@ rm -rf $RPM_BUILD_ROOT
 %doc doc ChangeLog.gz
 %attr(755,root,root) %{_bindir}/aterm
 %{_mandir}/man1/aterm.1.gz
-%{_applnkdir}/Utilities/aterm.desktop
+%{_applnkdir}/System/aterm.desktop
