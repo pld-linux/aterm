@@ -1,7 +1,7 @@
 Summary:	aterm - terminal emulator in an X Window System
 Summary(pl):	aterm - emulator terminala dla X Window System
 Name:		aterm
-Version:	0.4.0
+Version:	0.4.2
 Release:	1
 License:	GPL
 Group:		X11/Applications
@@ -9,12 +9,14 @@ Group(de):	X11/Applikationen
 Group(pl):	X11/Aplikacje
 Vendor:		Sasha Vasko <sashav@sprintmail.com>
 URL:		http://aterm.sourceforge.net
-Source0:	http://download.sourceforge.net/aterm/%{name}-%{version}.tar.gz
+Source0:	http://download.sourceforge.net/aterm/%{name}-%{version}.tar.bz2
 Source1:	%{name}.desktop
 Patch0:		%{name}-utempter.patch
 Patch1:		%{name}-wtmp.patch
 BuildRequires:	utempter-devel
 BuildRequires:	XFree86-devel
+BuildRequires:	libpng-devel
+BuildRequires:	libjpeg-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -47,8 +49,12 @@ u¿ywany gdziekolwiek.
 %patch1 -p1
 
 %build
+cd autoconf
+autoconf
+cp -f ./configure ..
+cd ..
 export LDFLAGS="%{rpmldflags} -lutempter -L/usr/X11R6/lib"
-%configure2_13 \
+%configure \
 	--enable-ttygid \
 	--enable-wtmp \
 	--enable-background-image \
