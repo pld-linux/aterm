@@ -7,7 +7,7 @@ Release:	5
 License:	GPL
 Vendor:		Sasha Vasko <sashav@sprintmail.com>
 Group:		X11/Applications
-Source0:	http://download.sourceforge.net/aterm/%{name}-%{version}.tar.bz2
+Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
 # Source0-md5:	5c29d0cde4225bdbd63ccb6a4dd94c56
 Source1:	%{name}.desktop
 Patch0:		%{name}-utempter.patch
