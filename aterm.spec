@@ -74,7 +74,7 @@ export LDFLAGS
 	--enable-graphics \
 	--enable-xgetdefault
 #	--enable-utmp \
-#	--enable-next-scroll \
+	--enable-next-scroll \
 
 CFLAGS="%{rpmcflags}"
 
