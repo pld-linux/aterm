@@ -1,0 +1,8 @@
+- adapter(ized)
+- added polish %description and Summary:
+- removed "--disable-delete-key" and "--disable-backspace-key" (for not to
+  be handled internally)
+- added "--term=xterm-color" (default terminal type)
+- changed (almost) all /usr/... to %{_...}
+- "make DESTDIR=... install" instead of "make prefix=... install"
+- %configure instead of ./configure
