@@ -2,7 +2,7 @@ Summary:	aterm - terminal emulator in an X Window System
 Summary(pl):	aterm - emulator terminala dla X Window System
 Name:		aterm
 Version:	0.3.6
-Release:	4
+Release:	5
 License:	GPL
 Group:		X11/Utilities
 Group(pl):	X11/Narzêdzia
