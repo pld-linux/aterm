@@ -8,4 +8,5 @@ Icon=gnome-term.png
 Terminal=false
 Type=Application
 Encoding=UTF-8
+Categories=TerminalEmulator;
 # vi: encoding=utf-8
