@@ -1,7 +1,10 @@
 [Desktop Entry]
 Name=Aterm
 Comment=Small, fast X terminal application
-Exec=aterm &
+Comment[es]=A color vt102 terminal emulator
+Comment[pl]=Ma³y ale szybki emulator terminala dla X Window System
+Comment[pt_BR]=Um emulador de vt102 colorido
+Exec=aterm
 Icon=gnome-term.png
 Terminal=0
 Type=Application
