@@ -2,5 +2,6 @@
 Name=Aterm
 Comment=Small, fast X terminal application
 Exec=aterm &
+Icon=gnome-rerm.png
 Terminal=0
 Type=Application
