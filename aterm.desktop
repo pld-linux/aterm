@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Aterm
+Comment=Small, fast X terminal application
+Exec=aterm &
+Terminal=0
+Type=Application

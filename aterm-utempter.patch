@@ -1,0 +1,37 @@
+diff -ur aterm-0.3.6.orig/src/command.c aterm-0.3.6/src/command.c
+--- aterm-0.3.6.orig/src/command.c	Mon May 10 12:44:15 1999
++++ aterm-0.3.6/src/command.c	Fri Jul 16 15:13:45 1999
+@@ -423,9 +423,8 @@
+     signal(sig, SIG_DFL);
+ 
+ #ifdef UTMP_SUPPORT
+-    privileges(RESTORE);
+-    cleanutent();
+-    privileges(IGNORE);
++      if (!(Options & Opt_utmpInhibit))
++	removeFromUtmp();
+ #endif
+ 
+     kill(getpid(), sig);
+@@ -450,7 +449,8 @@
+     chown(ttydev, ttyfd_stat.st_uid, ttyfd_stat.st_gid);
+ #endif
+ #ifdef UTMP_SUPPORT
+-    cleanutent();
++      if (!(Options & Opt_utmpInhibit))
++	removeFromUtmp();
+ #endif
+     privileges(IGNORE);
+ }
+@@ -1054,10 +1054,8 @@
+ 	exit(EXIT_FAILURE);
+     }
+ #ifdef UTMP_SUPPORT
+-    privileges(RESTORE);
+     if (!(Options & Opt_utmpInhibit))
+-	makeutent(ttydev, display_name);	/* stamp /etc/utmp */
+-    privileges(IGNORE);
++	addToUtmp(ttydev, display_name, ptyfd);
+ #endif
+ 
+     return ptyfd;

@@ -1,0 +1,21 @@
+diff -ur aterm-0.3.6.orig/src/utmp.c aterm-0.3.6/src/utmp.c
+--- aterm-0.3.6.orig/src/utmp.c	Fri Aug 28 03:29:14 1998
++++ aterm-0.3.6/src/utmp.c	Fri Jul 16 15:40:07 1999
+@@ -229,7 +229,7 @@
+     pututline(&utmp);
+ 
+ #ifdef WTMP_SUPPORT
+-    update_wtmp(WTMP_FILENAME, &utmp);
++    update_wtmp(_PATH_WTMP, &utmp);
+ #endif
+ 
+     endutent();			/* close the file */
+@@ -288,7 +288,7 @@
+     pututline(putmp);
+ 
+ #ifdef WTMP_SUPPORT
+-    update_wtmp(WTMP_FILENAME, putmp);
++    update_wtmp(_PATH_WTMP, putmp);
+ #endif
+ 
+     endutent();
