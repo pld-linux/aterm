@@ -55,7 +55,7 @@ leve.
 
 %build
 cd autoconf
-autoconf
+%{__autoconf}
 cp -f ./configure ..
 cd ..
 LDFLAGS="%{rpmldflags} -lutempter -L%{_libdir}"
