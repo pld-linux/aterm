@@ -1,19 +1,20 @@
 Summary:	aterm - terminal emulator in an X Window System
 Summary(pl):	aterm - emulator terminala dla X Window System
 Name:		aterm
-Version:	0.3.6
-Release:	7
+Version:	0.4.0
+Release:	1
 License:	GPL
 Group:		X11/Applications
 Group(de):	X11/Applikationen
 Group(pl):	X11/Aplikacje
 Vendor:		Sasha Vasko <sashav@sprintmail.com>
-URL:		http://members.xoom.com/sashav/aterm
-Source0:	http://members.xoom.com/sashav/aterm/%{name}-%{version}.tar.gz
+URL:		http://aterm.sourceforge.net
+Source0:	http://download.sourceforge.net/aterm/%{name}-%{version}.tar.gz
 Source1:	%{name}.desktop
 Patch0:		%{name}-utempter.patch
 Patch1:		%{name}-wtmp.patch
 BuildRequires:	utempter-devel
+BuildRequires:	XFree86-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -46,9 +47,9 @@ u¿ywany gdziekolwiek.
 %patch1 -p1
 
 %build
-LDFLAGS="%{rpmldflags} -lutempter"; export LDFLAGS
-%configure \
-	--enable-utmp \
+export LDFLAGS="%{rpmldflags} -lutempter -L/usr/X11R6/lib"
+%configure2_13 \
+	--enable-ttygid \
 	--enable-wtmp \
 	--enable-background-image \
 	--with-term="xterm-color" \
@@ -58,10 +59,13 @@ LDFLAGS="%{rpmldflags} -lutempter"; export LDFLAGS
 	--enable-fading \
 	--enable-menubar \
 	--enable-graphics \
-	--enable-next-scroll \
 	--enable-xgetdefault
+#	--enable-utmp \
+#	--enable-next-scroll \
 
-CFLAGS="%{rpmcflags}" %{__make}
+CFLAGS="%{rpmcflags}" 
+
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -71,14 +75,16 @@ install -d $RPM_BUILD_ROOT%{_applnkdir}/System
 %{__make} DESTDIR=$RPM_BUILD_ROOT install
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/System
 
-gzip -9nf ChangeLog
+tar -cf docs.tar doc/etc doc/menu doc/yodl
+gzip -9nf ChangeLog doc/*html doc/README* doc/FAQ doc/TODO docs.tar
+
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc doc ChangeLog.gz
+%doc doc/*.gz *.gz
 %attr(755,root,root) %{_bindir}/aterm
 %{_mandir}/man1/aterm.1*
 %{_applnkdir}/System/aterm.desktop
