@@ -24,6 +24,7 @@ tied to any libraries, and can be used anywhere.
 %prep
 %setup -q
 
+%build
 CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
 ./configure %{_target_platform} \
 	--prefix=/usr/X11R6 \
@@ -39,8 +40,6 @@ CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
 	--disable-backspace-key \
 	--disable-delete-key \
 	--enable-xgetdefault
-
-%build
 make
 
 %install
@@ -49,14 +48,17 @@ mkdir -p $RPM_BUILD_ROOT/usr/X11R6
 mkdir -p $RPM_BUILD_ROOT/etc/X11/wmconfig
 
 make prefix=$RPM_BUILD_ROOT/usr/X11R6 install
-install -m 644 $RPM_SOURCE_DIR/aterm.wmconfig $RPM_BUILD_ROOT/etc/X11/wmconfig/aterm
+install -m 644 %{SOURCE1} $RPM_BUILD_ROOT/etc/X11/wmconfig/aterm
+
+gzip -9nf $RPM_BUILD_ROOT/usr/X11R6/man/man1/aterm.1
+	ChangeLog
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
-%defattr(-,root,root)
-%doc doc ChangeLog
-/usr/X11R6/bin/aterm
-/usr/X11R6/man/man1/aterm.1
+%defattr(644,root,root,755)
+%doc doc ChangeLog.gz
+%attr(755,root,root) /usr/X11R6/bin/aterm
+/usr/X11R6/man/man1/aterm.1.gz
 %config(missingok) /etc/X11/wmconfig/aterm
