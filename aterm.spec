@@ -12,6 +12,7 @@ Source0:	http://members.xoom.com/sashav/aterm/%{name}-%{version}.tar.gz
 Source1:	aterm.desktop
 Patch0:		aterm-utempter.patch
 Patch1:		aterm-wtmp.patch
+BuildRequires:	utempter-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -51,6 +52,7 @@ LDFLAGS="-s -lutempter"; export LDFLAGS;
 	--with-png \
 	--with-jpeg \
 	--enable-transparency \
+	--enable-fading \
 	--enable-menubar \
 	--enable-graphics \
 	--enable-next-scroll \
