@@ -72,9 +72,9 @@ export LDFLAGS
 	--enable-fading \
 	--enable-menubar \
 	--enable-graphics \
-	--enable-xgetdefault
+	--enable-xgetdefault \
+	--enable-next-scroll
 #	--enable-utmp \
-	--enable-next-scroll \
 
 CFLAGS="%{rpmcflags}"
 
