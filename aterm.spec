@@ -75,7 +75,7 @@ export LDFLAGS
 #	--enable-utmp \
 #	--enable-next-scroll \
 
-CFLAGS="%{rpmcflags}" 
+CFLAGS="%{rpmcflags}"
 
 %{__make}
 
