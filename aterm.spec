@@ -3,7 +3,7 @@ Summary(pl):	aterm - emulator terminala dla X Window System
 Summary(pt_BR):	Um emulador de vt102 colorido
 Name:		aterm
 Version:	0.4.2
-Release:	2
+Release:	3
 License:	GPL
 Vendor:		Sasha Vasko <sashav@sprintmail.com>
 Group:		X11/Applications
@@ -66,7 +66,7 @@ export LDFLAGS
 	--enable-ttygid \
 	--enable-wtmp \
 	--enable-background-image \
-	--with-term="xterm-color" \
+	--with-term=rxvt \
 	--with-png \
 	--with-jpeg \
 	--enable-transparency \
