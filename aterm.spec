@@ -1,25 +1,17 @@
-%define name aterm
-%define version 0.3.6
-%define release 1
-%define serial 1
-
-Summary: aterm - terminal emulator in an X window
-Name: %{name}
-Version: %{version}
-Release:%{release}
-Epoch: %{serial}
-Copyright: GPL
-Group: X11/Utilities
-Vendor: Sasha Vasko <sashav@sprintmail.com>
-URL: http://members.xoom.com/sashav/aterm
-Distribution: Freshmeat RPMs
-Packager: Ryan Weaver <ryanw@infohwy.com>
-Source: http://members.xoom.com/sashav/aterm/%{name}-%{version}.tar.gz
-Source1: aterm.wmconfig
+Summary:	aterm - terminal emulator in an X window
+Name:		aterm
+Version:	0.3.6
+Release:	1
+Copyright:	GPL
+Group:		X11/Utilities
+Vendor:		Sasha Vasko <sashav@sprintmail.com>
+URL:		http://members.xoom.com/sashav/aterm
+Source:		http://members.xoom.com/sashav/aterm/%{name}-%{version}.tar.gz
+Source1:	aterm.wmconfig
 BuildRoot:	/tmp/%{name}-%{version}-root
 
 %description
-aterm, version %{version}, is a colour vt102 terminal emulator based on
+aterm is a colour vt102 terminal emulator based on
 rxvt 2.4.8 with Alfredo Kojima's additions of fast transparency,
 intended as an xterm(1) replacement for users who do not require
 features such as Tektronix 4014 emulation and toolkit-style
