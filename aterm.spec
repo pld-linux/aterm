@@ -1,23 +1,24 @@
 Summary:	aterm - terminal emulator in an X Window System
 Summary(pl):	aterm - emulator terminala dla X Window System
+Summary(pt_BR):	Um emulador de vt102 colorido
 Name:		aterm
 Version:	0.4.2
 Release:	1
 License:	GPL
+Vendor:		Sasha Vasko <sashav@sprintmail.com>
 Group:		X11/Applications
 Group(de):	X11/Applikationen
 Group(pl):	X11/Aplikacje
-Vendor:		Sasha Vasko <sashav@sprintmail.com>
-URL:		http://aterm.sourceforge.net
 Source0:	http://download.sourceforge.net/aterm/%{name}-%{version}.tar.bz2
 Source1:	%{name}.desktop
 Patch0:		%{name}-utempter.patch
 Patch1:		%{name}-wtmp.patch
-BuildRequires:	autoconf
-BuildRequires:	utempter-devel
+URL:		http://aterm.sourceforge.net/
 BuildRequires:	XFree86-devel
-BuildRequires:	libpng-devel
+BuildRequires:	autoconf
 BuildRequires:	libjpeg-devel
+BuildRequires:	libpng-devel
+BuildRequires:	utempter-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -44,6 +45,11 @@ sesje Xów. Zosta³ stworzony z my¶l± o u¿ytkownikach AfterStepa, ale
 nie jest zwi±zany z ¿adnymi specyficznymi bibliotekami i mo¿e byæ
 u¿ywany gdziekolwiek.
 
+%description -l pt_BR
+Aterm é um emulador de terminal vt102 baseado no rxvt 2.4.8, com a
+adição de fundo transparente. Aterm é um substituto para o xterm, mais
+leve.
+
 %prep
 %setup -q
 %patch0 -p1
@@ -54,7 +60,8 @@ cd autoconf
 autoconf
 cp -f ./configure ..
 cd ..
-export LDFLAGS="%{rpmldflags} -lutempter -L/usr/X11R6/lib"
+LDFLAGS="%{rpmldflags} -lutempter -L%{_libdir}"
+export LDFLAGS
 %configure \
 	--enable-ttygid \
 	--enable-wtmp \
@@ -76,13 +83,13 @@ CFLAGS="%{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
 install -d $RPM_BUILD_ROOT%{_applnkdir}/System
 
 %{__make} DESTDIR=$RPM_BUILD_ROOT install
+
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/System
 
-tar -cf docs.tar doc/etc doc/menu doc/yodl
+tar -cf docs.tar doc/etc doc/menu
 gzip -9nf ChangeLog doc/*html doc/README* doc/FAQ doc/TODO docs.tar
 
 %clean
