@@ -12,11 +12,10 @@ Source0:	http://members.xoom.com/sashav/aterm/%{name}-%{version}.tar.gz
 Source1:	aterm.desktop
 Patch0:		aterm-utempter.patch
 Patch1:		aterm-wtmp.patch
-BuildRoot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
 %define		_mandir		%{_prefix}/man
-%define		_applnkdir	%{_datadir}/applnk
 
 %description
 aterm is a colour vt102 terminal emulator based on rxvt 2.4.8 with Alfredo
