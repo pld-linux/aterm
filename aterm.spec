@@ -1,5 +1,5 @@
 %define name aterm
-%define version 0.3.4
+%define version 0.3.6
 %define release 1
 %define serial 1
 
