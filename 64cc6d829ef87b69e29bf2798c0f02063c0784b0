@@ -1,0 +1,3 @@
+- added using CVS keywords in %changelog (for automating them).
+
+Based on spec written by Ryan Weaver <ryanw@infohwy.com>
