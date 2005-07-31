@@ -2,20 +2,20 @@ Summary:	aterm - terminal emulator in an X Window System
 Summary(pl):	aterm - emulator terminala dla X Window System
 Summary(pt_BR):	Um emulador de vt102 colorido
 Name:		aterm
-Version:	0.4.2
-Release:	9
+Version:	1.0.0
+Release:	0.9
 License:	GPL
 Vendor:		Sasha Vasko <sashav@sprintmail.com>
 Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/aterm/%{name}-%{version}.tar.bz2
-# Source0-md5:	5c29d0cde4225bdbd63ccb6a4dd94c56
+# Source0-md5:	ceb64c62ae243a7fc3ddb0d6f9a19faa
 Source1:	%{name}.desktop
 Patch0:		%{name}-utempter.patch
 Patch1:		%{name}-wtmp.patch
 Patch2:		%{name}-etc_dir.patch
-Patch3:		%{name}-copy.patch
+#Patch3:		%{name}-copy.patch
 Patch4:		%{name}-home_end.patch
-URL:		http://aterm.sourceforge.net/
+URL:		http://www.afterstep.org/aterm.php
 BuildRequires:	XFree86-devel
 BuildRequires:	autoconf
 BuildRequires:	libjpeg-devel
@@ -55,8 +55,8 @@ leve.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
-%patch3 -p1
-%patch4 -p1
+#%patch3 -p1
+#%patch4 -p1
 
 %build
 cd autoconf
@@ -101,6 +101,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc ChangeLog doc/*html doc/README* doc/FAQ doc/TODO docs.tar
+%doc ChangeLog doc/README* doc/FAQ docs.tar
+%{_mandir}/man1/*
 %attr(755,root,root) %{_bindir}/aterm
 %{_desktopdir}/aterm.desktop
