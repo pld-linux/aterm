@@ -13,8 +13,6 @@ Source1:	%{name}.desktop
 Patch0:		%{name}-utempter.patch
 Patch1:		%{name}-wtmp.patch
 Patch2:		%{name}-etc_dir.patch
-#Patch3:		%{name}-copy.patch
-Patch4:		%{name}-home_end.patch
 URL:		http://www.afterstep.org/aterm.php
 BuildRequires:	XFree86-devel
 BuildRequires:	autoconf
@@ -55,8 +53,6 @@ leve.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
-#%patch3 -p1
-#%patch4 -p1
 
 %build
 cd autoconf
