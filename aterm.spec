@@ -1,6 +1,6 @@
 Summary:	aterm - terminal emulator in an X Window System
-Summary(pl):	aterm - emulator terminala dla X Window System
-Summary(pt_BR):	Um emulador de vt102 colorido
+Summary(pl.UTF-8):   aterm - emulator terminala dla X Window System
+Summary(pt_BR.UTF-8):   Um emulador de vt102 colorido
 Name:		aterm
 Version:	1.0.0
 Release:	2
@@ -32,20 +32,20 @@ a machine serving many X sessions. It was created with AfterStep
 Window Manger users in mind, but is not tied to any libraries, and can
 be used anywhere.
 
-%description -l pl
+%description -l pl.UTF-8
 aterm jest kolorowym emulatorem terminala vt102, opartym na rxvt 2.4.8
-z dodatkami Afredo Kojima do szybkiej emulacji przezroczysto¶ci. W
-za³o¿eniu ma zast±piæ program xterm(1) u¿ytkownikom nie wymagaj±cym
+z dodatkami Afredo Kojima do szybkiej emulacji przezroczystoÅ›ci. W
+zaÅ‚oÅ¼eniu ma zastÄ…piÄ‡ program xterm(1) uÅ¼ytkownikom nie wymagajÄ…cym
 takich rzeczy jak emulacja terminala Tektronix 4014 oraz
-"toolkit-style configurability". W efekcie aterm u¿ywa du¿o mniej
-pamiêci swap -- co jest du¿± zalet± w systemach obs³uguj±cych liczne
-sesje Xów. Zosta³ stworzony z my¶l± o u¿ytkownikach AfterStepa, ale
-nie jest zwi±zany z ¿adnymi specyficznymi bibliotekami i mo¿e byæ
-u¿ywany gdziekolwiek.
+"toolkit-style configurability". W efekcie aterm uÅ¼ywa duÅ¼o mniej
+pamiÄ™ci swap -- co jest duÅ¼Ä… zaletÄ… w systemach obsÅ‚ugujÄ…cych liczne
+sesje XÃ³w. ZostaÅ‚ stworzony z myÅ›lÄ… o uÅ¼ytkownikach AfterStepa, ale
+nie jest zwiÄ…zany z Å¼adnymi specyficznymi bibliotekami i moÅ¼e byÄ‡
+uÅ¼ywany gdziekolwiek.
 
-%description -l pt_BR
-Aterm é um emulador de terminal vt102 baseado no rxvt 2.4.8, com a
-adição de fundo transparente. Aterm é um substituto para o xterm, mais
+%description -l pt_BR.UTF-8
+Aterm Ã© um emulador de terminal vt102 baseado no rxvt 2.4.8, com a
+adiÃ§Ã£o de fundo transparente. Aterm Ã© um substituto para o xterm, mais
 leve.
 
 %prep
