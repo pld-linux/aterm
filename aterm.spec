@@ -1,6 +1,6 @@
 Summary:	aterm - terminal emulator in an X Window System
-Summary(pl.UTF-8):   aterm - emulator terminala dla X Window System
-Summary(pt_BR.UTF-8):   Um emulador de vt102 colorido
+Summary(pl.UTF-8):	aterm - emulator terminala dla X Window System
+Summary(pt_BR.UTF-8):	Um emulador de vt102 colorido
 Name:		aterm
 Version:	1.0.0
 Release:	2
