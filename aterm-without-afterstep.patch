@@ -1,0 +1,30 @@
+--- aterm-1.0.1.old/autoconf/configure.in	2007-08-01 19:45:34.000000000 +0200
++++ aterm-1.0.1/autoconf/configure.in	2007-10-25 00:46:26.000000000 +0200
+@@ -126,6 +126,11 @@
+         then AC_DEFINE(TRANSPARENT,1,[Define if you want to have a transparent background]) transparent=yes;
+ fi
+ 
++dnl# AfterStep integration
++
++AC_ARG_WITH(afterstep, [ --with-afterstep	AfterStep integration],, 
++	    [with_afterstep=no])
++
+ dnl# The following is passed directly to libAfterImage configure :
+ 
+ AC_ARG_WITH(afterimage_config,  [  --with-afterimage-config=DIR  use libAfterImage config script in DIR], afterimage_config="$withval",afterimage_config=NO)
+@@ -290,6 +295,7 @@
+ AFTERSTEP_LIB=
+ 
+ 
++if test "$with_afterstep" != no; then
+ dnl# if needed - check for external libAfterImage and libAfterBase :
+ AC_MSG_CHECKING(if distributed as part of AfterStep)
+ if test -d ../../libAfterBase && -d ../../libAfterImage && -d ../../libAfterStep ; then 
+@@ -369,6 +375,7 @@
+ 	fi
+ 
+ fi
++fi
+ 
+ 
+ if test "x$have_afterbase" = "xyes"; then
