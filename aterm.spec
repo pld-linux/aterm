@@ -13,6 +13,7 @@ Source1:	%{name}.desktop
 Patch0:		%{name}-utempter.patch
 Patch1:		%{name}-wtmp.patch
 Patch2:		%{name}-etc_dir.patch
+Patch3:		%{name}-without-afterstep.patch
 URL:		http://www.afterstep.org/aterm.php
 BuildRequires:	autoconf
 BuildRequires:	libjpeg-devel
@@ -53,6 +54,7 @@ leve.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 
 %build
 cd autoconf
