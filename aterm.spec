@@ -16,8 +16,6 @@ Patch2:		%{name}-etc_dir.patch
 Patch3:		%{name}-without-afterstep.patch
 URL:		http://www.afterstep.org/aterm.php
 BuildRequires:	autoconf
-BuildRequires:	libjpeg-devel
-BuildRequires:	libpng-devel
 BuildRequires:	utempter-devel
 BuildRequires:	xorg-lib-libXt-devel
 Requires:	terminfo
@@ -69,8 +67,6 @@ export LDFLAGS
 	--enable-wtmp \
 	--enable-background-image \
 	--with-term=rxvt \
-	--with-png \
-	--with-jpeg \
 	--enable-transparency \
 	--enable-fading \
 	--enable-menubar \
